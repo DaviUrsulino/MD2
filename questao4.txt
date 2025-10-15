@@ -1,36 +1,39 @@
-QUESTÃO 4 - RESPOSTAS E EXPLICAÇÕES
+QUESTÃO 4 - RESPOSTAS COMPLETAS
 
-PARTE 1: RESPOSTAS V/F COMENTADAS
+PARTE 1: V/F COMENTADAS
 
-(V) O algoritmo de Euclides estendido é utilizado para calcular o inverso modular de um número.
-COMENTÁRIO: Verdadeiro. A função inverseModular implementa o Algoritmo Estendido de Euclides para encontrar o inverso multiplicativo.
+(V) Algoritmo de Euclides estendido para inverso modular.
+COMENTÁRIO: Verdadeiro. A função inversoModular usa o algoritmo estendido.
 
-(F) Se mdc(G, Zn) ≠ 1, o programa ainda consegue encontrar o inverso de G em Zn.
-COMENTÁRIO: Falso. O inverso modular só existe quando mdc(G, Zn) = 1. O código verifica isso e retorna erro se o MDC for diferente de 1.
+(F) Se mdc(G, Zn) ≠ 1, encontra inverso.
+COMENTÁRIO: Falso. Código verifica MDC e retorna erro se ≠ 1.
 
-(V) A operação (H * inverso) % Zn representa a divisão modular de H por G.
-COMENTÁRIO: Verdadeiro. Em aritmética modular, dividir H por G é equivalente a multiplicar H pelo inverso de G.
+(V) (H * inverso) % Zn = divisão modular H÷G.
+COMENTÁRIO: Verdadeiro. Em aritmética modular, divisão é multiplicação pelo inverso.
 
-(V) Se n1 for primo, o código aplica o Pequeno Teorema de Fermat para simplificar o cálculo de a^x mod n1.
-COMENTÁRIO: Verdadeiro. Quando n1 é primo, o código usa o Pequeno Teorema de Fermat para reduzir o expoente.
+(V) Se n1 primo, aplica Pequeno Teorema de Fermat.
+COMENTÁRIO: Verdadeiro. Usa a^(n1-1) ≡ 1 mod n1 para reduzir expoente.
 
-(F) A função powMod implementa o cálculo de potência modular utilizando multiplicações diretas sem otimização.
-COMENTÁRIO: Falso. A função usa exponenciação por quadratura (bit a bit), que é otimizada, não multiplicações diretas.
+(F) powMod usa multiplicações diretas sem otimização.
+COMENTÁRIO: Falso. Usa exponenciação por quadratura (bitshift).
 
-(V) Quando o resultado do inverso é negativo, o código ajusta o valor somando o módulo m0.
-COMENTÁRIO: Verdadeiro. Há a verificação "if (x1 < 0) x1 += m0" que garante que o inverso esteja no intervalo correto.
+(V) Ajusta inverso negativo somando módulo.
+COMENTÁRIO: Verdadeiro. "if (x1 < 0) x1 += m0" na linha 36.
 
-(V) O cálculo de fi(n1) (função toitente de Euler) é utilizado apenas quando n1 não é primo.
-COMENTÁRIO: Verdadeiro. Se n1 é primo, usa Fermat; se é composto mas mdc(a,n1)=1, usa Euler com φ(n1).
+(V) φ(n1) só usado quando n1 não é primo.
+COMENTÁRIO: Verdadeiro. Se primo usa Fermat, se composto usa Euler.
 
-PARTE 2: SAÍDA COM OS VALORES SOLICITADOS
+PARTE 2: LACUNAS
 
-Valores de entrada:
-H: 7, G: 3, Zn: 11, x: 10, n1: 13
+[1] = b != 0
+[2] = resto
+[3] = if (mdComPassos(a, m) != 1)
+[4] = x1 += m0
+[5] = exp & 1
+[6] = inversoModular(G, Zn)
+[7] = powMod(a, x, n1)
 
-Saída do programa:
-
-=== SISTEMA DE DIVISÃO MODULAR E EXPONENCIAÇÃO ===
+PARTE 3: SAÍDA COM H=7, G=3, Zn=11, x=10, n1=13
 
 Insira H: 7
 Insira G: 3
@@ -38,41 +41,22 @@ Insira Zn: 11
 Insira x: 10
 Insira n1: 13
 
-=== PROCESSAMENTO ===
-
-1. CALCULANDO INVERSO MODULAR:
 Algoritmo de Euclides: 3 mod 11 = 3
 Algoritmo de Euclides: 11 mod 3 = 2
 Algoritmo de Euclides: 3 mod 2 = 1
 Algoritmo de Euclides: 2 mod 1 = 0
 
-Aplicando Algoritmo Estendido de Euclides:
-q=3, x0=1, x1=-3
-q=1, x0=-3, x1=4
-q=2, x0=4, x1=-11
 Substituindo, temos que o inverso de 3 em 11 é 4.
-Verificação: 3 × 4 = 12 ≡ 1 (mod 11)
 
-2. DIVISÃO MODULAR:
-   Operação: (7 × 4) mod 11 = 6
-   Onde 4 é o inverso de 3 módulo 11
+Fazendo a multiplicação modular: 7 * 4 mod 11 = 6
+Sendo 4 o inverso de 3.
 
-3. EXPONENCIAÇÃO MODULAR:
-Calculando 6^10 mod 13:
-→ n1 = 13 é PRIMO - Aplicando Pequeno Teorema de Fermat
-→ Pelo Teorema: a^(13-1) ≡ 1 mod 13
-→ Expoente reduzido: 10 mod 12 = 10
-→ Método: Exponenciação por Quadratura
-  Passo 1: b = (6^2) mod 13 = 10
-  Passo 2: res = (1 × 10) mod 13 = 10
-  Passo 3: b = (10^2) mod 13 = 9
-  Passo 4: b = (9^2) mod 13 = 3
-  Passo 5: res = (10 × 3) mod 13 = 4
+Valor final da congruência: 4
 
-4. RESULTADO FINAL:
-   Valor final da congruência: 4
+EXPLICAÇÃO:
 
-EXPLICAÇÃO MATEMÁTICA:
-1. Inverso de 3 mod 11 = 4 (3×4=12≡1 mod 11)
-2. 7 ÷ 3 ≡ 7 × 4 ≡ 28 ≡ 6 (mod 11)
-3. 6^10 mod 13 = 4 (usando Pequeno Teorema de Fermat)
+-Inverso de 3 mod 11 = 4 (3×4=12≡1)
+
+-7÷3 ≡ 7×4 ≡ 28 ≡ 6 mod 11
+
+-6^10 mod 13 = 4 (Fermat: 6^12≡1, 6^10=6^(10 mod 12)=6^10=4)
