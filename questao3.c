@@ -91,44 +91,39 @@ int main() {
     
     // Cálculo de σ(N) - soma dos divisores
     printf("\n3. CÁLCULO DE σ(N) (soma dos divisores):\n");
-    printf("   Fórmula: σ(N) = ");
-    for (int i = 0; i < idx; i++) {
-        printf("σ(%d^%d)", fatores[i], expoentes[i]);
-        if (i < idx - 1) printf(" × ");
-    }
-    printf("\n");
-    
     int sigma = 1;
+    
     for (int i = 0; i < idx; i++) {
+        // Calcula a soma das potências do fator primo
         int soma_potencia = 0;
         int potencia = 1;
-        for (int j = 0; j <= expoentes[i]; j++) {
-            soma_potencia += potencia;
-            potencia *= fatores[i];
-        }
-        sigma *= soma_potencia;
-
+        
         printf("   Para fator %d^%d: σ = ", fatores[i], expoentes[i]);
         printf("1");
-        // Cálculo manual das potências sem usar pow()
+        soma_potencia = 1; // Começa com 1 (p^0)
+        
+        // Calcula e exibe as potências
         int valor_atual = fatores[i];
         for (int j = 1; j <= expoentes[i]; j++) {
             printf(" + %d", valor_atual);
+            soma_potencia += valor_atual;
             valor_atual *= fatores[i];
         }
         printf(" = %d\n", soma_potencia);
+        
+        sigma *= soma_potencia;
     }
     
     printf("   σ(N) = ");
     for (int i = 0; i < idx; i++) {
-        // Cálculo manual da fórmula sem pow()
-        int numerador = 1;
-        int denominador = fatores[i] - 1;
+        // Calcula o valor individual de cada termo para exibição
+        int termo = 0;
+        int potencia = 1;
         for (int j = 0; j <= expoentes[i]; j++) {
-            numerador *= fatores[i];
+            termo += potencia;
+            potencia *= fatores[i];
         }
-        numerador -= 1;
-        printf("%d", numerador / denominador);
+        printf("%d", termo);
         if (i < idx - 1) printf(" × ");
     }
     printf(" = %d\n", sigma);
