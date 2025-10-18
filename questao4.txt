@@ -1,6 +1,7 @@
 QUESTÃO 4 - RESPOSTAS COMPLETAS
-
-PARTE 1: V/F COMENTADAS
+Pedro Augusto Macedo Del Castilo - 241025354
+Davi Ursulino de Oliveira - 241012202
+PARTE 1: V/F
 
 (V) Algoritmo de Euclides estendido para inverso modular.
 COMENTÁRIO: Verdadeiro. A função inversoModular usa o algoritmo estendido.

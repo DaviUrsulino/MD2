@@ -110,6 +110,9 @@ long long potenciaModular(long long base, long long exp, long long mod, long lon
 
 int main() {
     
+    printf("Pedro Augusto Macedo Del Castilo - 241025354\n");
+    printf("Davi Ursulino de Oliveira - 241012202\n\n");
+
     long long n1, n2, p, q, n, z, e, d;
 
     printf("----------ETAPA 1: FATORACAO (METODO p de POLLARD)----------\n");

@@ -19,6 +19,8 @@ int mmc(int a, int b) {
 int main() {
     int N;
     
+    printf("Pedro Augusto Macedo Del Castilo - 241025354\n");
+    printf("Davi Ursulino de Oliveira - 241012202\n\n");
     // Validação do número de chaves
     printf("Digite o número de chaves (1-10): ");
     if (scanf("%d", &N) != 1 || N < 1 || N > 10) {

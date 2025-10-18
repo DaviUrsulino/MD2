@@ -3,7 +3,8 @@
 
 int main() {
     int N;
-    
+    printf("Pedro Augusto Macedo Del Castilo - 241025354\n");
+    printf("Davi Ursulino de Oliveira - 241012202\n\n");
     // Validação da entrada
     printf("Digite o valor de N (1-100000): ");
     if (scanf("%d", &N) != 1 || N < 1 || N > 100000) {

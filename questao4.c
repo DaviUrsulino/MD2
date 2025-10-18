@@ -57,7 +57,8 @@ int main() {
 #ifdef WIN32
     SetConsoleOutputCP(CP_UTF8);
 #endif
-
+    printf("Pedro Augusto Macedo Del Castilo - 241025354\n");
+    printf("Davi Ursulino de Oliveira - 241012202\n\n");
     int H, G, Zn, x, n1;
 
     printf("Insira H: ");
