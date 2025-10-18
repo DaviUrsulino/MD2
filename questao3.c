@@ -7,7 +7,7 @@ int main() {
     printf("Davi Ursulino de Oliveira - 241012202\n\n");
     // Validação da entrada
     printf("Digite o valor de N (1-100000): ");
-    if (scanf("%d", &N) != 1 || N < 1 || N > 100000) {
+    if (scanf("%d", &N) != 1 || N < 1 || N > 105) {
         printf("ERRO: N deve estar entre 1 e 100000.\n");
         return 1;
     }
